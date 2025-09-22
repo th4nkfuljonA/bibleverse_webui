@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1,viewport-fit=cover"
+  />
+  <title>Settings • Verse of the Day</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <header class="site-header">
+    <div class="brand">
+      <span class="logo">⚙️</span>
+      <h1>Settings</h1>
+    </div>
+    <nav>
+      <a class="btn ghost" href="index.html">Back</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <form class="card settings-card" id="settingsForm">
+      <h2>Personalize your experience</h2>
+
+      <div class="field">
+        <label for="translation">Preferred Translation</label>
+        <select id="translation" name="translation" aria-describedby="translation-help">
+          <option value="KJV">KJV (King James Version - Public Domain)</option>
+          <option value="ASV">ASV (American Standard Version - Public Domain)</option>
+          <option value="WEB">WEB (World English Bible - Public Domain)</option>
+        </select>
+        <small id="translation-help" class="muted">Choose your preferred Bible translation</small>
+      </div>
+
+      <div class="field">
+        <label for="theme">Theme</label>
+        <select id="theme" name="theme" aria-describedby="theme-help">
+          <option value="system">System (Follow device preference)</option>
+          <option value="light">Light Mode</option>
+          <option value="dark">Dark Mode</option>
+        </select>
+        <small id="theme-help" class="muted">Choose your preferred color scheme</small>
+      </div>
+
+      <div class="field">
+        <label for="accent">Accent Color</label>
+        <input id="accent" name="accent" type="color" value="#0ea5e9" aria-describedby="accent-help" />
+        <small id="accent-help" class="muted">Customize the accent color used throughout the app</small>
+      </div>
+
+      <div class="field">
+        <label for="fontSize">Font Size: <span id="fontSizeValue">18</span>px</label>
+        <input id="fontSize" name="fontSize" type="range" min="12" max="32" value="18" aria-describedby="fontSize-help" />
+        <small id="fontSize-help" class="muted">Adjust the size of the verse text (12-32px)</small>
+      </div>
+
+      <div class="field check">
+        <input id="showRefFirst" name="showRefFirst" type="checkbox" aria-describedby="showRefFirst-help" />
+        <label for="showRefFirst">Show reference above verse</label>
+        <small id="showRefFirst-help" class="muted">When enabled, the Bible reference appears before the verse text</small>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn">Save</button>
+        <button type="button" id="resetBtn" class="btn ghost">Reset to defaults</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <p>Preferences are saved in your browser.</p>
+  </footer>
+
+  <script type="module" src="settings.js"></script>
+</body>
+</html>

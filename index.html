@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1,viewport-fit=cover"
+  />
+  <title>Verse of the Day</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+  <meta name="theme-color" content="#0ea5e9" />
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <header class="site-header">
+    <div class="brand">
+      <span class="logo">📖</span>
+      <h1>Verse of the Day</h1>
+    </div>
+    <nav>
+      <button id="searchBtn" class="btn ghost" aria-label="Search verses" title="Search through all verses">
+        <span aria-hidden="true">🔍</span> Search
+      </button>
+      <a class="btn ghost" href="settings.html" aria-label="Settings">Settings</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card verse-card" id="verseCard">
+      <div class="verse-meta">
+        <span id="todayStr" class="pill">Today</span>
+        <span id="versionPill" class="pill">KJV</span>
+      </div>
+
+      <h2 id="reference" class="reference" aria-live="polite">
+        <span class="loading-dots">Loading<span class="dots">...</span></span>
+      </h2>
+      <p id="verseText" class="verse-text" aria-live="polite">
+        <span class="loading-text">Preparing today's verse<span class="dots">...</span></span>
+      </p>
+
+      <div class="actions" role="group" aria-label="Verse actions">
+        <button id="copyBtn" class="btn" aria-label="Copy verse to clipboard" title="Copy this verse to your clipboard">
+          <span aria-hidden="true">📋</span> Copy
+        </button>
+        <button id="shareBtn" class="btn ghost" aria-label="Share verse" title="Share this verse">
+          <span aria-hidden="true">🔗</span> Share
+        </button>
+        <button id="shuffleBtn" class="btn ghost" aria-label="Show different verse" title="Show a different verse (for testing)">
+          <span aria-hidden="true">🔀</span> Shuffle
+        </button>
+      </div>
+    </section>
+
+    <section class="card next-card" id="nextCard" aria-live="polite">
+      <h3>Tomorrow's Verse</h3>
+      <p class="muted">Up next: <span id="tomorrowRef">Loading...</span> <span id="tomorrowVersion">(KJV)</span></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made for believers to be encouraged daily. ✨</p>
+  </footer>
+
+  <!-- Search Modal -->
+  <div id="searchModal" class="modal" role="dialog" aria-labelledby="searchTitle" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="searchTitle">Search Verses</h2>
+        <button id="closeSearch" class="btn ghost" aria-label="Close search">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="search-controls">
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search by reference or text..." 
+            aria-label="Search query"
+            autocomplete="off"
+          />
+          <select id="searchTranslation" aria-label="Search translation">
+            <option value="KJV">KJV</option>
+            <option value="ASV">ASV</option>
+            <option value="WEB">WEB</option>
+          </select>
+        </div>
+        <div id="searchResults" class="search-results" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="verses.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
